@@ -1,0 +1,2962 @@
+{
+  "basePath": "/api/v1",
+  "definitions": {
+    "app.Response": {
+      "description": "The Response struct is used for wrapping the API response with a code, message, and data.",
+      "properties": {
+        "code": {
+          "description": "Code is the HTTP status code or a custom code used to indicate the result of the request\n@example 200",
+          "type": "integer"
+        },
+        "data": {
+          "description": "Data is the response data (can be any object or null)\n@example {\"id\": 1, \"name\": \"John Doe\"}"
+        },
+        "msg": {
+          "description": "Msg is the message that describes the result of the request\n@example \"Request successful\""
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.CompletedEventsResponse": {
+      "properties": {
+        "count": {
+          "example": 54,
+          "type": "integer"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Event"
+          },
+          "type": "array"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        },
+        "tournament_id": {
+          "example": "115548681802226458",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.DetailsFrame": {
+      "properties": {
+        "participants": {
+          "items": {
+            "$ref": "#/definitions/lolesports.DetailsParticipant"
+          },
+          "type": "array"
+        },
+        "timestamp": {
+          "example": "2026-10-07T10:53:11.481Z",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.DetailsParticipant": {
+      "properties": {
+        "ability_power": {
+          "example": 0,
+          "type": "integer"
+        },
+        "armor": {
+          "example": 90,
+          "type": "integer"
+        },
+        "assists": {
+          "example": 0,
+          "type": "integer"
+        },
+        "attack_damage": {
+          "example": 110,
+          "type": "integer"
+        },
+        "attack_speed": {
+          "example": 125,
+          "type": "integer"
+        },
+        "champion_damage_share": {
+          "example": 0.19,
+          "type": "number"
+        },
+        "creep_score": {
+          "example": 251,
+          "type": "integer"
+        },
+        "critical_chance": {
+          "example": 0,
+          "type": "number"
+        },
+        "deaths": {
+          "example": 5,
+          "type": "integer"
+        },
+        "items": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "kill_participation": {
+          "example": 0.2,
+          "type": "number"
+        },
+        "kills": {
+          "example": 1,
+          "type": "integer"
+        },
+        "level": {
+          "example": 16,
+          "type": "integer"
+        },
+        "life_steal": {
+          "example": 0,
+          "type": "integer"
+        },
+        "magic_resistance": {
+          "example": 60,
+          "type": "integer"
+        },
+        "participant_id": {
+          "example": 1,
+          "type": "integer"
+        },
+        "rune_ids": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "rune_style_id": {
+          "example": 8200,
+          "type": "integer"
+        },
+        "rune_sub_style_id": {
+          "example": 8400,
+          "type": "integer"
+        },
+        "skill_order": {
+          "example": [
+            "Q"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "tenacity": {
+          "example": 0,
+          "type": "number"
+        },
+        "total_gold_earned": {
+          "example": 10852,
+          "type": "integer"
+        },
+        "wards_destroyed": {
+          "example": 5,
+          "type": "integer"
+        },
+        "wards_placed": {
+          "example": 13,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.Event": {
+      "properties": {
+        "block_name": {
+          "example": "Week 1",
+          "type": "string"
+        },
+        "games": {
+          "items": {
+            "$ref": "#/definitions/lolesports.GameVods"
+          },
+          "type": "array"
+        },
+        "league": {
+          "$ref": "#/definitions/lolesports.EventLeague"
+        },
+        "match": {
+          "$ref": "#/definitions/lolesports.Match"
+        },
+        "start_time": {
+          "example": "2026-07-24T14:30:00Z",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "unstarted",
+            "inProgress",
+            "completed"
+          ],
+          "example": "completed",
+          "type": "string"
+        },
+        "type": {
+          "example": "match",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.EventDetailResponse": {
+      "properties": {
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "games": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Game"
+          },
+          "type": "array"
+        },
+        "id": {
+          "example": "117133816701918802",
+          "type": "string"
+        },
+        "league": {
+          "$ref": "#/definitions/lolesports.EventLeague"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        },
+        "strategy": {
+          "$ref": "#/definitions/lolesports.Strategy"
+        },
+        "streams": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Stream"
+          },
+          "type": "array"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Team"
+          },
+          "type": "array"
+        },
+        "tournament_id": {
+          "example": "117133773242499009",
+          "type": "string"
+        },
+        "type": {
+          "example": "match",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.EventLeague": {
+      "properties": {
+        "id": {
+          "example": "98767991302996019",
+          "type": "string"
+        },
+        "name": {
+          "example": "LEC",
+          "type": "string"
+        },
+        "slug": {
+          "example": "lec",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.GPRLeague": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "example": "CBLOL",
+          "type": "string"
+        },
+        "slug": {
+          "example": "cblol-brazil",
+          "type": "string"
+        },
+        "teams": {
+          "example": 4,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.GPRPoint": {
+      "properties": {
+        "date": {
+          "example": "2026-10-27T05:00:00Z",
+          "type": "string"
+        },
+        "elo": {
+          "example": 1247,
+          "type": "integer"
+        },
+        "rank": {
+          "example": 41,
+          "type": "integer"
+        },
+        "score": {
+          "example": 1177,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.GPRRecord": {
+      "properties": {
+        "losses": {
+          "example": 37,
+          "type": "integer"
+        },
+        "wins": {
+          "example": 46,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.GPRResponse": {
+      "properties": {
+        "count": {
+          "example": 58,
+          "type": "integer"
+        },
+        "end_date": {
+          "example": "2026-10-28",
+          "type": "string"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "leagues": {
+          "items": {
+            "$ref": "#/definitions/lolesports.GPRLeague"
+          },
+          "type": "array"
+        },
+        "season": {
+          "enum": [
+            "current",
+            "2025",
+            "2024"
+          ],
+          "example": "current",
+          "type": "string"
+        },
+        "seasons": {
+          "items": {
+            "$ref": "#/definitions/lolesports.GPRSeasonLink"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        },
+        "start_date": {
+          "example": "2026-01-01",
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/lolesports.GPRTeam"
+          },
+          "type": "array"
+        },
+        "total": {
+          "example": 58,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.GPRSeasonLink": {
+      "properties": {
+        "kind": {
+          "enum": [
+            "current",
+            "worlds"
+          ],
+          "example": "worlds",
+          "type": "string"
+        },
+        "season": {
+          "example": "2025",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "year": {
+          "example": "2025",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.GPRTeam": {
+      "properties": {
+        "average_opponent_gpr": {
+          "example": 1132,
+          "type": "integer"
+        },
+        "date_calculated": {
+          "example": "2026-10-27T05:00:00Z",
+          "type": "string"
+        },
+        "elo": {
+          "example": 1247,
+          "type": "integer"
+        },
+        "game_record": {
+          "$ref": "#/definitions/lolesports.GPRRecord"
+        },
+        "history": {
+          "items": {
+            "$ref": "#/definitions/lolesports.GPRPoint"
+          },
+          "type": "array"
+        },
+        "match_record": {
+          "$ref": "#/definitions/lolesports.GPRRecord"
+        },
+        "previous_rank": {
+          "example": 42,
+          "type": "integer"
+        },
+        "previous_score": {
+          "example": 1170,
+          "type": "integer"
+        },
+        "rank": {
+          "example": 41,
+          "type": "integer"
+        },
+        "rank_change": {
+          "example": 1,
+          "type": "integer"
+        },
+        "score": {
+          "example": 1177,
+          "type": "integer"
+        },
+        "team": {
+          "$ref": "#/definitions/lolesports.GPRTeamRef"
+        },
+        "tournaments": {
+          "items": {
+            "$ref": "#/definitions/lolesports.GPRTournament"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.GPRTeamRef": {
+      "properties": {
+        "code": {
+          "example": "LOUD",
+          "type": "string"
+        },
+        "id": {
+          "example": "105397404796640412",
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "league": {
+          "example": "CBLOL",
+          "type": "string"
+        },
+        "league_id": {
+          "type": "string"
+        },
+        "league_slug": {
+          "example": "cblol-brazil",
+          "type": "string"
+        },
+        "name": {
+          "example": "LOUD",
+          "type": "string"
+        },
+        "slug": {
+          "example": "loud",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.GPRTournament": {
+      "properties": {
+        "end_time": {
+          "type": "string"
+        },
+        "id": {
+          "example": "115548668059523728",
+          "type": "string"
+        },
+        "league": {
+          "example": "LEC",
+          "type": "string"
+        },
+        "losses": {
+          "example": 6,
+          "type": "integer"
+        },
+        "name": {
+          "example": "lec_2026_season",
+          "type": "string"
+        },
+        "placement": {
+          "example": 2,
+          "type": "integer"
+        },
+        "region_slug": {
+          "example": "europe",
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "state": {
+          "example": "completed",
+          "type": "string"
+        },
+        "wins": {
+          "example": 12,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.Game": {
+      "properties": {
+        "id": {
+          "example": "117133816701918803",
+          "type": "string"
+        },
+        "number": {
+          "example": 1,
+          "type": "integer"
+        },
+        "sides": {
+          "items": {
+            "$ref": "#/definitions/lolesports.GameSide"
+          },
+          "type": "array"
+        },
+        "state": {
+          "enum": [
+            "unneeded",
+            "unstarted",
+            "inProgress",
+            "completed"
+          ],
+          "example": "completed",
+          "type": "string"
+        },
+        "vods": {
+          "items": {
+            "$ref": "#/definitions/lolesports.VOD"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.GameDetailsResponse": {
+      "properties": {
+        "count": {
+          "example": 10,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "frames": {
+          "items": {
+            "$ref": "#/definitions/lolesports.DetailsFrame"
+          },
+          "type": "array"
+        },
+        "game_id": {
+          "example": "117133816701918803",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.GameSide": {
+      "properties": {
+        "side": {
+          "enum": [
+            "blue",
+            "red"
+          ],
+          "example": "blue",
+          "type": "string"
+        },
+        "team_id": {
+          "example": "111504538396430510",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.GameVods": {
+      "properties": {
+        "id": {
+          "example": "115548681803406276",
+          "type": "string"
+        },
+        "vods": {
+          "items": {
+            "$ref": "#/definitions/lolesports.VOD"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.GameWindowResponse": {
+      "properties": {
+        "blue": {
+          "$ref": "#/definitions/lolesports.TeamMetadata"
+        },
+        "count": {
+          "example": 10,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "frames": {
+          "items": {
+            "$ref": "#/definitions/lolesports.WindowFrame"
+          },
+          "type": "array"
+        },
+        "game_id": {
+          "example": "117133816701918803",
+          "type": "string"
+        },
+        "match_id": {
+          "example": "117133816701918802",
+          "type": "string"
+        },
+        "patch": {
+          "example": "16.18.819.1060",
+          "type": "string"
+        },
+        "red": {
+          "$ref": "#/definitions/lolesports.TeamMetadata"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.HomeLeague": {
+      "properties": {
+        "name": {
+          "example": "LCK",
+          "type": "string"
+        },
+        "region": {
+          "example": "KOREA",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.League": {
+      "properties": {
+        "display_status": {
+          "enum": [
+            "force_selected",
+            "selected",
+            "not_selected",
+            "hidden"
+          ],
+          "example": "selected",
+          "type": "string"
+        },
+        "id": {
+          "example": "98767991302996019",
+          "type": "string"
+        },
+        "image_url": {
+          "example": "https://static.lolesports.com/leagues/lec.png",
+          "type": "string"
+        },
+        "name": {
+          "example": "LEC",
+          "type": "string"
+        },
+        "priority": {
+          "example": 1,
+          "type": "integer"
+        },
+        "region": {
+          "example": "EMEA",
+          "type": "string"
+        },
+        "slug": {
+          "example": "lec",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.LeaguesResponse": {
+      "properties": {
+        "count": {
+          "example": 51,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "leagues": {
+          "items": {
+            "$ref": "#/definitions/lolesports.League"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.LiveResponse": {
+      "properties": {
+        "count": {
+          "example": 0,
+          "type": "integer"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Event"
+          },
+          "type": "array"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.Match": {
+      "properties": {
+        "flags": {
+          "example": [
+            "hasVod"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "example": "115548681803406275",
+          "type": "string"
+        },
+        "strategy": {
+          "$ref": "#/definitions/lolesports.Strategy"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Team"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.NewsArticle": {
+      "properties": {
+        "authors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "description": {
+          "example": "Everything You Need To Know About Worlds!",
+          "type": "string"
+        },
+        "external": {
+          "example": false,
+          "type": "boolean"
+        },
+        "external_url": {
+          "example": "https://www.youtube.com/watch?v=H_B91cxvCRQ",
+          "type": "string"
+        },
+        "id": {
+          "example": "e18c9f59-8497-4196-af3f-18b2fac2b920.en-us",
+          "type": "string"
+        },
+        "image_url": {
+          "example": "https://cdn.sanity.io/images/dsfx7636/news_live/0286cc9daee206f55cf722a3b2830ca3fdad7d59-1600x900.jpg",
+          "type": "string"
+        },
+        "path": {
+          "example": "/news/worlds-2026-primer",
+          "type": "string"
+        },
+        "published_at": {
+          "example": "2026-10-05T15:00:00.000Z",
+          "type": "string"
+        },
+        "title": {
+          "example": "Worlds 2026 Primer",
+          "type": "string"
+        },
+        "url": {
+          "example": "https://lolesports.com/en-US/news/worlds-2026-primer",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.NewsResponse": {
+      "properties": {
+        "articles": {
+          "items": {
+            "$ref": "#/definitions/lolesports.NewsArticle"
+          },
+          "type": "array"
+        },
+        "count": {
+          "example": 100,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "hl": {
+          "example": "en-US",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        },
+        "total": {
+          "example": 100,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.ParticipantMetadata": {
+      "properties": {
+        "champion_id": {
+          "example": "Sion",
+          "type": "string"
+        },
+        "participant_id": {
+          "example": 1,
+          "type": "integer"
+        },
+        "player_id": {
+          "example": "102206337829139149",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "top",
+            "jungle",
+            "mid",
+            "bottom",
+            "support"
+          ],
+          "example": "top",
+          "type": "string"
+        },
+        "summoner_name": {
+          "example": "SR Fudge",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.Player": {
+      "properties": {
+        "first_name": {
+          "example": "Sanghyeok",
+          "type": "string"
+        },
+        "id": {
+          "example": "98767991747728851",
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "last_name": {
+          "example": "Lee",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "top",
+            "jungle",
+            "mid",
+            "bottom",
+            "support",
+            "none"
+          ],
+          "example": "mid",
+          "type": "string"
+        },
+        "summoner_name": {
+          "example": "Faker",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.Ranking": {
+      "properties": {
+        "ordinal": {
+          "example": 1,
+          "type": "integer"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Team"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.Record": {
+      "properties": {
+        "losses": {
+          "example": 0,
+          "type": "integer"
+        },
+        "wins": {
+          "example": 9,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.ScheduleResponse": {
+      "properties": {
+        "count": {
+          "example": 80,
+          "type": "integer"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Event"
+          },
+          "type": "array"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "newer_page_token": {
+          "type": "string"
+        },
+        "older_page_token": {
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.Season": {
+      "properties": {
+        "end_time": {
+          "example": "2026-12-31T22:59:00Z",
+          "type": "string"
+        },
+        "id": {
+          "example": "115547545029543948",
+          "type": "string"
+        },
+        "name": {
+          "example": "lolesports_2026",
+          "type": "string"
+        },
+        "slug": {
+          "example": "lolesports_2026",
+          "type": "string"
+        },
+        "split_count": {
+          "example": 6,
+          "type": "integer"
+        },
+        "splits": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Split"
+          },
+          "type": "array"
+        },
+        "start_time": {
+          "example": "2026-01-01T08:00:00Z",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.SeasonLeague": {
+      "properties": {
+        "id": {
+          "example": "98767991302996019",
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "name": {
+          "example": "LEC",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.SeasonsResponse": {
+      "properties": {
+        "count": {
+          "example": 2,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "league_id": {
+          "example": "98767991302996019",
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "season_id": {
+          "example": "115547545029543948",
+          "type": "string"
+        },
+        "seasons": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Season"
+          },
+          "type": "array"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.Split": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "end_time": {
+          "example": "2026-09-27T22:00:00Z",
+          "type": "string"
+        },
+        "id": {
+          "example": "115548016979679447",
+          "type": "string"
+        },
+        "name": {
+          "example": "Split 3",
+          "type": "string"
+        },
+        "region": {
+          "example": "REGIONAL",
+          "type": "string"
+        },
+        "slug": {
+          "example": "split_3",
+          "type": "string"
+        },
+        "start_time": {
+          "example": "2026-07-19T22:00:00Z",
+          "type": "string"
+        },
+        "tournaments": {
+          "items": {
+            "$ref": "#/definitions/lolesports.SplitTournament"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.SplitTournament": {
+      "properties": {
+        "id": {
+          "example": "115548681802226458",
+          "type": "string"
+        },
+        "league": {
+          "$ref": "#/definitions/lolesports.SeasonLeague"
+        },
+        "name": {
+          "example": "Summer 2026",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.StandingMatch": {
+      "properties": {
+        "flags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "example": "115548681803340575",
+          "type": "string"
+        },
+        "previous_match_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "state": {
+          "example": "completed",
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Team"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.StandingRound": {
+      "properties": {
+        "match_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "example": "Upper Bracket - Round 1",
+          "type": "string"
+        },
+        "slug": {
+          "example": "upper_bracket_round_1",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.StandingSection": {
+      "properties": {
+        "id": {
+          "example": "115548681803012894",
+          "type": "string"
+        },
+        "matches": {
+          "items": {
+            "$ref": "#/definitions/lolesports.StandingMatch"
+          },
+          "type": "array"
+        },
+        "name": {
+          "example": "Regular Season",
+          "type": "string"
+        },
+        "rankings": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Ranking"
+          },
+          "type": "array"
+        },
+        "rounds": {
+          "items": {
+            "$ref": "#/definitions/lolesports.StandingRound"
+          },
+          "type": "array"
+        },
+        "type": {
+          "enum": [
+            "group",
+            "bracket"
+          ],
+          "example": "bracket",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.StandingStage": {
+      "properties": {
+        "id": {
+          "example": "115548681802750747",
+          "type": "string"
+        },
+        "name": {
+          "example": "Regular Season",
+          "type": "string"
+        },
+        "sections": {
+          "items": {
+            "$ref": "#/definitions/lolesports.StandingSection"
+          },
+          "type": "array"
+        },
+        "slug": {
+          "example": "regular_season",
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.StandingsResponse": {
+      "properties": {
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        },
+        "stages": {
+          "items": {
+            "$ref": "#/definitions/lolesports.StandingStage"
+          },
+          "type": "array"
+        },
+        "tournament_id": {
+          "example": "115548681802226458",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.Strategy": {
+      "properties": {
+        "count": {
+          "example": 3,
+          "type": "integer"
+        },
+        "type": {
+          "example": "bestOf",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.Stream": {
+      "properties": {
+        "locale": {
+          "example": "en-GB",
+          "type": "string"
+        },
+        "parameter": {
+          "example": "lec",
+          "type": "string"
+        },
+        "provider": {
+          "example": "twitch",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.Team": {
+      "properties": {
+        "code": {
+          "example": "T1",
+          "type": "string"
+        },
+        "game_wins": {
+          "example": 2,
+          "type": "integer"
+        },
+        "id": {
+          "example": "98767991853197861",
+          "type": "string"
+        },
+        "image_url": {
+          "example": "https://static.lolesports.com/teams/t1.png",
+          "type": "string"
+        },
+        "name": {
+          "example": "T1",
+          "type": "string"
+        },
+        "outcome": {
+          "enum": [
+            "win",
+            "loss"
+          ],
+          "example": "win",
+          "type": "string"
+        },
+        "record": {
+          "$ref": "#/definitions/lolesports.Record"
+        },
+        "slug": {
+          "example": "t1",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.TeamDetail": {
+      "properties": {
+        "code": {
+          "example": "T1",
+          "type": "string"
+        },
+        "home_league": {
+          "$ref": "#/definitions/lolesports.HomeLeague"
+        },
+        "id": {
+          "example": "98767991853197861",
+          "type": "string"
+        },
+        "image_url": {
+          "type": "string"
+        },
+        "name": {
+          "example": "T1",
+          "type": "string"
+        },
+        "players": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Player"
+          },
+          "type": "array"
+        },
+        "slug": {
+          "example": "t1",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "active",
+            "archived"
+          ],
+          "example": "active",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.TeamMetadata": {
+      "properties": {
+        "participants": {
+          "items": {
+            "$ref": "#/definitions/lolesports.ParticipantMetadata"
+          },
+          "type": "array"
+        },
+        "team_id": {
+          "example": "111504538396430510",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.TeamTotals": {
+      "properties": {
+        "barons": {
+          "example": 0,
+          "type": "integer"
+        },
+        "dragons": {
+          "example": [
+            "infernal"
+          ],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "inhibitors": {
+          "example": 0,
+          "type": "integer"
+        },
+        "participants": {
+          "items": {
+            "$ref": "#/definitions/lolesports.WindowParticipant"
+          },
+          "type": "array"
+        },
+        "total_gold": {
+          "example": 15621,
+          "type": "integer"
+        },
+        "total_kills": {
+          "example": 4,
+          "type": "integer"
+        },
+        "towers": {
+          "example": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.TeamsResponse": {
+      "properties": {
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "has_more": {
+          "example": false,
+          "type": "boolean"
+        },
+        "limit": {
+          "example": 25,
+          "type": "integer"
+        },
+        "page": {
+          "example": 1,
+          "type": "integer"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        },
+        "teams": {
+          "items": {
+            "$ref": "#/definitions/lolesports.TeamDetail"
+          },
+          "type": "array"
+        },
+        "total": {
+          "example": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.Tournament": {
+      "properties": {
+        "end_date": {
+          "example": "2026-09-20",
+          "type": "string"
+        },
+        "id": {
+          "example": "115548681802226458",
+          "type": "string"
+        },
+        "slug": {
+          "example": "lec_split_3_2026",
+          "type": "string"
+        },
+        "start_date": {
+          "example": "2026-07-23",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.TournamentsResponse": {
+      "properties": {
+        "count": {
+          "example": 12,
+          "type": "integer"
+        },
+        "fetched_at": {
+          "example": "2026-10-27T10:00:00Z",
+          "type": "string"
+        },
+        "league_id": {
+          "example": "98767991302996019",
+          "type": "string"
+        },
+        "source_url": {
+          "example": "https://esports-api.lolesports.com/persisted/gw/getSchedule?hl=en-US",
+          "type": "string"
+        },
+        "tournaments": {
+          "items": {
+            "$ref": "#/definitions/lolesports.Tournament"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.VOD": {
+      "properties": {
+        "end_millis": {
+          "example": 2525000,
+          "type": "integer"
+        },
+        "first_frame_time": {
+          "description": "FirstFrameTime is the UTC time of the recording's first frame, when the upstream knows it.",
+          "example": "2026-10-15T18:00:26.487Z",
+          "type": "string"
+        },
+        "id": {
+          "example": "117401850612643795",
+          "type": "string"
+        },
+        "locale": {
+          "example": "fr-FR",
+          "type": "string"
+        },
+        "locale_name": {
+          "example": "French (France)",
+          "type": "string"
+        },
+        "offset": {
+          "description": "Offset is the upstream's alignment offset for the recording in milliseconds.",
+          "example": 0,
+          "type": "integer"
+        },
+        "parameter": {
+          "example": "xtq9wDAT3zg",
+          "type": "string"
+        },
+        "provider": {
+          "example": "youtube",
+          "type": "string"
+        },
+        "start_millis": {
+          "example": 121000,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.WindowFrame": {
+      "properties": {
+        "blue": {
+          "$ref": "#/definitions/lolesports.TeamTotals"
+        },
+        "game_state": {
+          "enum": [
+            "in_game",
+            "paused",
+            "finished"
+          ],
+          "example": "in_game",
+          "type": "string"
+        },
+        "red": {
+          "$ref": "#/definitions/lolesports.TeamTotals"
+        },
+        "timestamp": {
+          "example": "2026-10-07T10:20:00.000Z",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "lolesports.WindowParticipant": {
+      "properties": {
+        "assists": {
+          "example": 2,
+          "type": "integer"
+        },
+        "creep_score": {
+          "example": 54,
+          "type": "integer"
+        },
+        "current_health": {
+          "example": 640,
+          "type": "integer"
+        },
+        "deaths": {
+          "example": 0,
+          "type": "integer"
+        },
+        "kills": {
+          "example": 1,
+          "type": "integer"
+        },
+        "level": {
+          "example": 6,
+          "type": "integer"
+        },
+        "max_health": {
+          "example": 1100,
+          "type": "integer"
+        },
+        "participant_id": {
+          "example": 1,
+          "type": "integer"
+        },
+        "total_gold": {
+          "example": 3200,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "host": "api.crawlora.net",
+  "info": {
+    "contact": {
+      "email": "support@crawlora.net",
+      "name": "API Support",
+      "url": "https://crawlora.net"
+    },
+    "description": "Crawlora is a hosted web-data and SERP API: call documented REST endpoints and get normalized JSON instead of HTML to parse — across search/SERP, maps and local, e-commerce, app stores, social, media and finance. One API key; Crawlora runs the proxy rotation, headless browsers and parsing behind the scenes. Billed pay-on-success: charged only on a successful 2xx response, 1-10 credits per call, with a free tier of 2,000 credits per month and no card. A hosted MCP server (mcp.crawlora.net/mcp) exposes the same catalog as agent tools. Search endpoints accept `q` as a universal alias for whichever search-term parameter they document (`query`, `term`, `keyword`, or Amazon's `k`), so one parameter name works across the whole catalog; an explicitly supplied documented name always wins.",
+    "license": {
+      "name": "Crawlora Terms of Service",
+      "url": "https://crawlora.net/terms"
+    },
+    "termsOfService": "https://crawlora.net/terms",
+    "title": "Crawlora API",
+    "version": "1.2",
+    "x-logo": {
+      "altText": "Crawlora",
+      "backgroundColor": "#FFFFFF",
+      "url": "https://raw.githubusercontent.com/Crawlora-org/crawlora-mcp/main/assets/logo-400x400.png"
+    }
+  },
+  "paths": {
+    "/lolesports/completed-events": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns every completed match of one tournament with final game wins and the game ids and VOD references for each game. An empty list is valid for a tournament that has not started.",
+        "operationId": "lolesports-completed-events",
+        "parameters": [
+          {
+            "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+            "enum": [
+              "cs-CZ",
+              "de-DE",
+              "en-US",
+              "es-ES",
+              "es-MX",
+              "fr-FR",
+              "hu-HU",
+              "ja-JP",
+              "ko-KR",
+              "pl-PL",
+              "pt-BR",
+              "th-TH",
+              "tr-TR",
+              "vi-VN",
+              "zh-TW"
+            ],
+            "in": "query",
+            "name": "hl",
+            "type": "string"
+          },
+          {
+            "description": "Numeric tournament id from lolesports-tournaments",
+            "in": "query",
+            "name": "tournament_id",
+            "required": true,
+            "type": "string",
+            "x-example": "115548681802226458"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.CompletedEventsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Esports completed matches",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    },
+    "/lolesports/event": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one match: league, tournament, teams with game wins, best-of strategy, each game's id, number, state (`unneeded`, `unstarted`, `inProgress`, `completed`), blue/red side assignment and VODs, plus broadcast streams. Use a game `id` with lolesports-game-window or lolesports-game-details. An unknown match id returns not found.",
+        "operationId": "lolesports-event",
+        "parameters": [
+          {
+            "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+            "enum": [
+              "cs-CZ",
+              "de-DE",
+              "en-US",
+              "es-ES",
+              "es-MX",
+              "fr-FR",
+              "hu-HU",
+              "ja-JP",
+              "ko-KR",
+              "pl-PL",
+              "pt-BR",
+              "th-TH",
+              "tr-TR",
+              "vi-VN",
+              "zh-TW"
+            ],
+            "in": "query",
+            "name": "hl",
+            "type": "string"
+          },
+          {
+            "description": "Numeric match id from lolesports-schedule, lolesports-live or lolesports-standings",
+            "in": "query",
+            "name": "match_id",
+            "required": true,
+            "type": "string",
+            "x-example": "117133816701918802"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.EventDetailResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Esports match detail",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    },
+    "/lolesports/game-details": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns per-player detail frames for one game: level, KDA, gold, creep score, kill participation, damage share, wards, attack damage, ability power, armor, magic resistance, final items, rune ids and skill order. Use participant ids from lolesports-game-window metadata. The same `starting_time` rule as lolesports-game-window applies.",
+        "operationId": "lolesports-game-details",
+        "parameters": [
+          {
+            "description": "Numeric game id from lolesports-event",
+            "in": "query",
+            "name": "game_id",
+            "required": true,
+            "type": "string",
+            "x-example": "117133816701918803"
+          },
+          {
+            "description": "RFC 3339 UTC timestamp whose seconds are divisible by 10; frames begin there",
+            "in": "query",
+            "name": "starting_time",
+            "type": "string",
+            "x-example": "2026-10-07T11:30:00.000Z"
+          },
+          {
+            "description": "Participant numbers 1 to 10 joined by underscores, for example 1_2_3",
+            "in": "query",
+            "name": "participant_ids",
+            "type": "string",
+            "x-example": "1_2"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.GameDetailsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Esports player game details",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    },
+    "/lolesports/game-window": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the lolesports live-stats window for one game: patch, blue and red team and player metadata (champion, role, summoner name) and roughly ten seconds of frames with team gold, kills, towers, inhibitors, barons, dragons and per-player level, KDA, creep score and health. `game_state` is `in_game`, `paused` or `finished`. For a game in progress omit `starting_time` for the latest window; for a completed game pass a timestamp inside the game.",
+        "operationId": "lolesports-game-window",
+        "parameters": [
+          {
+            "description": "Numeric game id from lolesports-event",
+            "in": "query",
+            "name": "game_id",
+            "required": true,
+            "type": "string",
+            "x-example": "117133816701918803"
+          },
+          {
+            "description": "RFC 3339 UTC timestamp whose seconds are divisible by 10; frames begin there",
+            "in": "query",
+            "name": "starting_time",
+            "type": "string",
+            "x-example": "2026-10-07T10:20:00.000Z"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.GameWindowResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Esports live game window",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    },
+    "/lolesports/gpr": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the League of Legends Esports Global Power Rankings (GPR): every ranked team with rank, GPR score, Elo, previous rank and rank change, home league, match and game records, average opponent GPR and the tournaments counted with each result and placement. `season` selects `current` (the running year, default) or the Worlds snapshots `2025` and `2024`; `league` keeps one home league's teams and `history` adds the daily GPR history points. The response lists the seasons and home leagues available.",
+        "operationId": "lolesports-gpr",
+        "parameters": [
+          {
+            "description": "Ranking snapshot; one of current, 2025, 2024; defaults to current",
+            "enum": [
+              "current",
+              "2025",
+              "2024"
+            ],
+            "in": "query",
+            "name": "season",
+            "type": "string"
+          },
+          {
+            "description": "Home league slug from the leagues list of the response, for example lck",
+            "in": "query",
+            "name": "league",
+            "type": "string"
+          },
+          {
+            "description": "Number of teams to return, 1 to 200, best rank first; defaults to all",
+            "in": "query",
+            "maximum": 200,
+            "minimum": 1,
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "Add each team's GPR history points",
+            "in": "query",
+            "name": "history",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.GPRResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Global Power Rankings",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    },
+    "/lolesports/leagues": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns every league on lolesports.com with its numeric `id`, `slug`, name, region, image and display status (`force_selected`, `selected`, `not_selected`, `hidden`). Use a league `id` with lolesports-schedule or lolesports-tournaments. Region labels are upstream values such as `EMEA`, `KOREA`, `CHINA`, `NORTH AMERICA` and `INTERNATIONAL`.",
+        "operationId": "lolesports-leagues",
+        "parameters": [
+          {
+            "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+            "enum": [
+              "cs-CZ",
+              "de-DE",
+              "en-US",
+              "es-ES",
+              "es-MX",
+              "fr-FR",
+              "hu-HU",
+              "ja-JP",
+              "ko-KR",
+              "pl-PL",
+              "pt-BR",
+              "th-TH",
+              "tr-TR",
+              "vi-VN",
+              "zh-TW"
+            ],
+            "in": "query",
+            "name": "hl",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.LeaguesResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Esports leagues",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    },
+    "/lolesports/live": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns matches currently in progress across all leagues, in the same shape as lolesports-schedule events. An empty list is valid when no league is playing. Pair a returned match id with lolesports-event to get game ids, then lolesports-game-window for live frames.",
+        "operationId": "lolesports-live",
+        "parameters": [
+          {
+            "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+            "enum": [
+              "cs-CZ",
+              "de-DE",
+              "en-US",
+              "es-ES",
+              "es-MX",
+              "fr-FR",
+              "hu-HU",
+              "ja-JP",
+              "ko-KR",
+              "pl-PL",
+              "pt-BR",
+              "th-TH",
+              "tr-TR",
+              "vi-VN",
+              "zh-TW"
+            ],
+            "in": "query",
+            "name": "hl",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.LiveResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Esports live matches",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    },
+    "/lolesports/news": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the articles listed on the League of Legends Esports news page: title, summary, link, publication time, banner image, authors and whether the item links out to another site (a video or a store page). The page shows up to the newest 100 items and has no category, tag or paging controls; `hl` selects the site language and `limit` keeps the newest items only.",
+        "operationId": "lolesports-news",
+        "parameters": [
+          {
+            "description": "Site language; one of cs-CZ, de-DE, el-GR, en-AU, en-GB, en-PH, en-SG, en-US, es-ES, es-MX, fr-FR, hu-HU, id-ID, it-IT, ja-JP, ko-KR, pl-PL, pt-BR, ro-RO, ru-RU, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+            "enum": [
+              "cs-CZ",
+              "de-DE",
+              "el-GR",
+              "en-AU",
+              "en-GB",
+              "en-PH",
+              "en-SG",
+              "en-US",
+              "es-ES",
+              "es-MX",
+              "fr-FR",
+              "hu-HU",
+              "id-ID",
+              "it-IT",
+              "ja-JP",
+              "ko-KR",
+              "pl-PL",
+              "pt-BR",
+              "ro-RO",
+              "ru-RU",
+              "th-TH",
+              "tr-TR",
+              "vi-VN",
+              "zh-TW"
+            ],
+            "in": "query",
+            "name": "hl",
+            "type": "string"
+          },
+          {
+            "description": "Number of newest articles to return, 1 to 100; defaults to all the page lists",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "limit",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.NewsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Esports news",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    },
+    "/lolesports/schedule": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the match schedule around today: start time, state (`unstarted`, `inProgress`, `completed`), block name, league, teams, outcome and game wins, and best-of strategy. Optionally filter with `league_id`. Follow `older_page_token` for past results and `newer_page_token` for later fixtures; a missing token means that direction is exhausted.",
+        "operationId": "lolesports-schedule",
+        "parameters": [
+          {
+            "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+            "enum": [
+              "cs-CZ",
+              "de-DE",
+              "en-US",
+              "es-ES",
+              "es-MX",
+              "fr-FR",
+              "hu-HU",
+              "ja-JP",
+              "ko-KR",
+              "pl-PL",
+              "pt-BR",
+              "th-TH",
+              "tr-TR",
+              "vi-VN",
+              "zh-TW"
+            ],
+            "in": "query",
+            "name": "hl",
+            "type": "string"
+          },
+          {
+            "description": "Numeric league id from lolesports-leagues, or up to 10 comma-separated ids to combine leagues; omit for all leagues",
+            "in": "query",
+            "name": "league_id",
+            "type": "string",
+            "x-example": "98767991302996019"
+          },
+          {
+            "description": "older_page_token or newer_page_token copied from a previous response",
+            "in": "query",
+            "name": "page_token",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.ScheduleResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Esports schedule",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    },
+    "/lolesports/seasons": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns the League of Legends esports calendar since 2011, newest first: every season with its splits (start and end time, region) and the tournaments played in each split with their league. Use a tournament `id` with lolesports-standings or lolesports-completed-events and a league `id` with lolesports-tournaments. `season_id` (taken from an earlier response) returns one season; `region` keeps only splits of one region and `league_id` keeps only that league's tournaments, both applied after the fetch. The unfiltered list is large (about 300 KB). A season id that does not exist returns not found.",
+        "operationId": "lolesports-seasons",
+        "parameters": [
+          {
+            "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+            "enum": [
+              "cs-CZ",
+              "de-DE",
+              "en-US",
+              "es-ES",
+              "es-MX",
+              "fr-FR",
+              "hu-HU",
+              "ja-JP",
+              "ko-KR",
+              "pl-PL",
+              "pt-BR",
+              "th-TH",
+              "tr-TR",
+              "vi-VN",
+              "zh-TW"
+            ],
+            "in": "query",
+            "name": "hl",
+            "type": "string"
+          },
+          {
+            "description": "Numeric season id from an earlier lolesports-seasons response; omit for every season",
+            "in": "query",
+            "name": "season_id",
+            "type": "string",
+            "x-example": "115547545029543948"
+          },
+          {
+            "description": "Split region, case-insensitive; one of AMERICAS, BRAZIL, CHINA, COMMONWEALTH OF INDEPENDENT STATES, EMEA, EUROPE, GLOBAL, HONG KONG, MACAU, TAIWAN, INTERNATIONAL, JAPAN, KOREA, LATIN AMERICA, LATIN AMERICA NORTH, LATIN AMERICA SOUTH, NORTH AMERICA, OCEANIA, REGIONAL, SOUTHEAST ASIA, TURKEY, VIETNAM",
+            "in": "query",
+            "name": "region",
+            "type": "string",
+            "x-example": "KOREA"
+          },
+          {
+            "description": "Numeric league id from lolesports-leagues; keeps only that league's tournaments",
+            "in": "query",
+            "name": "league_id",
+            "type": "string",
+            "x-example": "98767991302996019"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.SeasonsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Esports seasons and splits",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    },
+    "/lolesports/standings": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns one tournament's stages (for example Regular Season, Playoffs), each with sections of matches and ordered team rankings with win-loss records. Playoff brackets include `previous_match_ids` that link rounds; `rounds=true` also names each bracket round. Use match ids with lolesports-event.",
+        "operationId": "lolesports-standings",
+        "parameters": [
+          {
+            "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+            "enum": [
+              "cs-CZ",
+              "de-DE",
+              "en-US",
+              "es-ES",
+              "es-MX",
+              "fr-FR",
+              "hu-HU",
+              "ja-JP",
+              "ko-KR",
+              "pl-PL",
+              "pt-BR",
+              "th-TH",
+              "tr-TR",
+              "vi-VN",
+              "zh-TW"
+            ],
+            "in": "query",
+            "name": "hl",
+            "type": "string"
+          },
+          {
+            "description": "Numeric tournament id from lolesports-tournaments",
+            "in": "query",
+            "name": "tournament_id",
+            "required": true,
+            "type": "string",
+            "x-example": "115548681802226458"
+          },
+          {
+            "description": "true adds each section's id and type (group or bracket) and bracket round names with their match ids; costs a second upstream call; false or omitted keeps the default response",
+            "enum": [
+              true,
+              false
+            ],
+            "in": "query",
+            "name": "rounds",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.StandingsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Esports standings",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    },
+    "/lolesports/teams": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns teams with slug, code, status (`active`, `archived`), home league and the roster of players (summoner name, real name, role `top`, `jungle`, `mid`, `bottom`, `support`). Look up one team with `slug` or search with `q`; results are sorted by name and paged. The slug of every team is available from lolesports-standings and lolesports-schedule.",
+        "operationId": "lolesports-teams",
+        "parameters": [
+          {
+            "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+            "enum": [
+              "cs-CZ",
+              "de-DE",
+              "en-US",
+              "es-ES",
+              "es-MX",
+              "fr-FR",
+              "hu-HU",
+              "ja-JP",
+              "ko-KR",
+              "pl-PL",
+              "pt-BR",
+              "th-TH",
+              "tr-TR",
+              "vi-VN",
+              "zh-TW"
+            ],
+            "in": "query",
+            "name": "hl",
+            "type": "string"
+          },
+          {
+            "description": "Exact team slug such as t1 or g2-esports; takes precedence over q",
+            "in": "query",
+            "name": "slug",
+            "type": "string",
+            "x-example": "t1"
+          },
+          {
+            "description": "Case-insensitive substring of team name, code or slug",
+            "in": "query",
+            "name": "q",
+            "type": "string"
+          },
+          {
+            "description": "Team status filter: active or archived",
+            "enum": [
+              "active",
+              "archived"
+            ],
+            "in": "query",
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "description": "1-based page number; defaults to 1",
+            "in": "query",
+            "minimum": 1,
+            "name": "page",
+            "type": "integer"
+          },
+          {
+            "description": "Page size 1 to 100; defaults to 25",
+            "in": "query",
+            "maximum": 100,
+            "minimum": 1,
+            "name": "limit",
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.TeamsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Esports teams and rosters",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    },
+    "/lolesports/tournaments": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Returns a league's tournaments (splits and seasons) with numeric `id`, `slug`, `start_date` and `end_date`, newest first. Use a tournament `id` with lolesports-standings or lolesports-completed-events. An unknown league id returns not found.",
+        "operationId": "lolesports-tournaments",
+        "parameters": [
+          {
+            "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+            "enum": [
+              "cs-CZ",
+              "de-DE",
+              "en-US",
+              "es-ES",
+              "es-MX",
+              "fr-FR",
+              "hu-HU",
+              "ja-JP",
+              "ko-KR",
+              "pl-PL",
+              "pt-BR",
+              "th-TH",
+              "tr-TR",
+              "vi-VN",
+              "zh-TW"
+            ],
+            "in": "query",
+            "name": "hl",
+            "type": "string"
+          },
+          {
+            "description": "Numeric league id from lolesports-leagues",
+            "in": "query",
+            "name": "league_id",
+            "required": true,
+            "type": "string",
+            "x-example": "98767991302996019"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/definitions/app.Response"
+                },
+                {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/definitions/lolesports.TournamentsResponse"
+                    }
+                  },
+                  "type": "object"
+                }
+              ]
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {
+              "$ref": "#/definitions/app.Response"
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "summary": "League of Legends Esports tournaments",
+        "tags": [
+          "lolesports"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "ApiKeyAuth": {
+      "in": "header",
+      "name": "x-api-key",
+      "type": "apiKey"
+    }
+  },
+  "swagger": "2.0",
+  "tags": [
+    {
+      "name": "lolesports"
+    }
+  ]
+}

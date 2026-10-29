@@ -1,0 +1,1072 @@
+{
+  "platform": "lolesports",
+  "operationCount": 13,
+  "operationIds": [
+    "lolesports-completed-events",
+    "lolesports-event",
+    "lolesports-game-details",
+    "lolesports-game-window",
+    "lolesports-gpr",
+    "lolesports-leagues",
+    "lolesports-live",
+    "lolesports-news",
+    "lolesports-schedule",
+    "lolesports-seasons",
+    "lolesports-standings",
+    "lolesports-teams",
+    "lolesports-tournaments"
+  ],
+  "methods": {
+    "completed_events": "lolesports-completed-events",
+    "event": "lolesports-event",
+    "game_details": "lolesports-game-details",
+    "game_window": "lolesports-game-window",
+    "gpr": "lolesports-gpr",
+    "leagues": "lolesports-leagues",
+    "live": "lolesports-live",
+    "news": "lolesports-news",
+    "schedule": "lolesports-schedule",
+    "seasons": "lolesports-seasons",
+    "standings": "lolesports-standings",
+    "teams": "lolesports-teams",
+    "tournaments": "lolesports-tournaments"
+  },
+  "operations": {
+    "lolesports-completed-events": {
+      "id": "lolesports-completed-events",
+      "method": "GET",
+      "path": "/lolesports/completed-events",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "hl",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ]
+        },
+        {
+          "name": "tournament_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ],
+          "in": "query",
+          "name": "hl",
+          "type": "string"
+        },
+        {
+          "description": "Numeric tournament id from lolesports-tournaments",
+          "in": "query",
+          "name": "tournament_id",
+          "required": true,
+          "type": "string",
+          "x-example": "115548681802226458"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "lolesports-event": {
+      "id": "lolesports-event",
+      "method": "GET",
+      "path": "/lolesports/event",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "hl",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ]
+        },
+        {
+          "name": "match_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ],
+          "in": "query",
+          "name": "hl",
+          "type": "string"
+        },
+        {
+          "description": "Numeric match id from lolesports-schedule, lolesports-live or lolesports-standings",
+          "in": "query",
+          "name": "match_id",
+          "required": true,
+          "type": "string",
+          "x-example": "117133816701918802"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "lolesports-game-details": {
+      "id": "lolesports-game-details",
+      "method": "GET",
+      "path": "/lolesports/game-details",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "game_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "starting_time",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "participant_ids",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric game id from lolesports-event",
+          "in": "query",
+          "name": "game_id",
+          "required": true,
+          "type": "string",
+          "x-example": "117133816701918803"
+        },
+        {
+          "description": "RFC 3339 UTC timestamp whose seconds are divisible by 10; frames begin there",
+          "in": "query",
+          "name": "starting_time",
+          "type": "string",
+          "x-example": "2026-10-07T11:30:00.000Z"
+        },
+        {
+          "description": "Participant numbers 1 to 10 joined by underscores, for example 1_2_3",
+          "in": "query",
+          "name": "participant_ids",
+          "type": "string",
+          "x-example": "1_2"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "lolesports-game-window": {
+      "id": "lolesports-game-window",
+      "method": "GET",
+      "path": "/lolesports/game-window",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "game_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "starting_time",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Numeric game id from lolesports-event",
+          "in": "query",
+          "name": "game_id",
+          "required": true,
+          "type": "string",
+          "x-example": "117133816701918803"
+        },
+        {
+          "description": "RFC 3339 UTC timestamp whose seconds are divisible by 10; frames begin there",
+          "in": "query",
+          "name": "starting_time",
+          "type": "string",
+          "x-example": "2026-10-07T10:20:00.000Z"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "lolesports-gpr": {
+      "id": "lolesports-gpr",
+      "method": "GET",
+      "path": "/lolesports/gpr",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "season",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "current",
+            "2025",
+            "2024"
+          ]
+        },
+        {
+          "name": "league",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "history",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Ranking snapshot; one of current, 2025, 2024; defaults to current",
+          "enum": [
+            "current",
+            "2025",
+            "2024"
+          ],
+          "in": "query",
+          "name": "season",
+          "type": "string"
+        },
+        {
+          "description": "Home league slug from the leagues list of the response, for example lck",
+          "in": "query",
+          "name": "league",
+          "type": "string"
+        },
+        {
+          "description": "Number of teams to return, 1 to 200, best rank first; defaults to all",
+          "in": "query",
+          "maximum": 200,
+          "minimum": 1,
+          "name": "limit",
+          "type": "integer"
+        },
+        {
+          "description": "Add each team's GPR history points",
+          "in": "query",
+          "name": "history",
+          "type": "boolean"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "lolesports-leagues": {
+      "id": "lolesports-leagues",
+      "method": "GET",
+      "path": "/lolesports/leagues",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "hl",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ]
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ],
+          "in": "query",
+          "name": "hl",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "lolesports-live": {
+      "id": "lolesports-live",
+      "method": "GET",
+      "path": "/lolesports/live",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "hl",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ]
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ],
+          "in": "query",
+          "name": "hl",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "lolesports-news": {
+      "id": "lolesports-news",
+      "method": "GET",
+      "path": "/lolesports/news",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "hl",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "el-GR",
+            "en-AU",
+            "en-GB",
+            "en-PH",
+            "en-SG",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "id-ID",
+            "it-IT",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "ro-RO",
+            "ru-RU",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ]
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Site language; one of cs-CZ, de-DE, el-GR, en-AU, en-GB, en-PH, en-SG, en-US, es-ES, es-MX, fr-FR, hu-HU, id-ID, it-IT, ja-JP, ko-KR, pl-PL, pt-BR, ro-RO, ru-RU, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "el-GR",
+            "en-AU",
+            "en-GB",
+            "en-PH",
+            "en-SG",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "id-ID",
+            "it-IT",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "ro-RO",
+            "ru-RU",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ],
+          "in": "query",
+          "name": "hl",
+          "type": "string"
+        },
+        {
+          "description": "Number of newest articles to return, 1 to 100; defaults to all the page lists",
+          "in": "query",
+          "maximum": 100,
+          "minimum": 1,
+          "name": "limit",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "lolesports-schedule": {
+      "id": "lolesports-schedule",
+      "method": "GET",
+      "path": "/lolesports/schedule",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "hl",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ]
+        },
+        {
+          "name": "league_id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "page_token",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ],
+          "in": "query",
+          "name": "hl",
+          "type": "string"
+        },
+        {
+          "description": "Numeric league id from lolesports-leagues, or up to 10 comma-separated ids to combine leagues; omit for all leagues",
+          "in": "query",
+          "name": "league_id",
+          "type": "string",
+          "x-example": "98767991302996019"
+        },
+        {
+          "description": "older_page_token or newer_page_token copied from a previous response",
+          "in": "query",
+          "name": "page_token",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "lolesports-seasons": {
+      "id": "lolesports-seasons",
+      "method": "GET",
+      "path": "/lolesports/seasons",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "hl",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ]
+        },
+        {
+          "name": "season_id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "region",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "league_id",
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ],
+          "in": "query",
+          "name": "hl",
+          "type": "string"
+        },
+        {
+          "description": "Numeric season id from an earlier lolesports-seasons response; omit for every season",
+          "in": "query",
+          "name": "season_id",
+          "type": "string",
+          "x-example": "115547545029543948"
+        },
+        {
+          "description": "Split region, case-insensitive; one of AMERICAS, BRAZIL, CHINA, COMMONWEALTH OF INDEPENDENT STATES, EMEA, EUROPE, GLOBAL, HONG KONG, MACAU, TAIWAN, INTERNATIONAL, JAPAN, KOREA, LATIN AMERICA, LATIN AMERICA NORTH, LATIN AMERICA SOUTH, NORTH AMERICA, OCEANIA, REGIONAL, SOUTHEAST ASIA, TURKEY, VIETNAM",
+          "in": "query",
+          "name": "region",
+          "type": "string",
+          "x-example": "KOREA"
+        },
+        {
+          "description": "Numeric league id from lolesports-leagues; keeps only that league's tournaments",
+          "in": "query",
+          "name": "league_id",
+          "type": "string",
+          "x-example": "98767991302996019"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "lolesports-standings": {
+      "id": "lolesports-standings",
+      "method": "GET",
+      "path": "/lolesports/standings",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "hl",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ]
+        },
+        {
+          "name": "tournament_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "rounds",
+          "in": "query",
+          "type": "boolean",
+          "enum": [
+            "True",
+            "False"
+          ]
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ],
+          "in": "query",
+          "name": "hl",
+          "type": "string"
+        },
+        {
+          "description": "Numeric tournament id from lolesports-tournaments",
+          "in": "query",
+          "name": "tournament_id",
+          "required": true,
+          "type": "string",
+          "x-example": "115548681802226458"
+        },
+        {
+          "description": "true adds each section's id and type (group or bracket) and bracket round names with their match ids; costs a second upstream call; false or omitted keeps the default response",
+          "enum": [
+            true,
+            false
+          ],
+          "in": "query",
+          "name": "rounds",
+          "type": "boolean"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "lolesports-teams": {
+      "id": "lolesports-teams",
+      "method": "GET",
+      "path": "/lolesports/teams",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "hl",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ]
+        },
+        {
+          "name": "slug",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "q",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "active",
+            "archived"
+          ]
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ],
+          "in": "query",
+          "name": "hl",
+          "type": "string"
+        },
+        {
+          "description": "Exact team slug such as t1 or g2-esports; takes precedence over q",
+          "in": "query",
+          "name": "slug",
+          "type": "string",
+          "x-example": "t1"
+        },
+        {
+          "description": "Case-insensitive substring of team name, code or slug",
+          "in": "query",
+          "name": "q",
+          "type": "string"
+        },
+        {
+          "description": "Team status filter: active or archived",
+          "enum": [
+            "active",
+            "archived"
+          ],
+          "in": "query",
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "description": "1-based page number; defaults to 1",
+          "in": "query",
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        },
+        {
+          "description": "Page size 1 to 100; defaults to 25",
+          "in": "query",
+          "maximum": 100,
+          "minimum": 1,
+          "name": "limit",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "lolesports-tournaments": {
+      "id": "lolesports-tournaments",
+      "method": "GET",
+      "path": "/lolesports/tournaments",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "hl",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ]
+        },
+        {
+          "name": "league_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "bodyParam": null,
+      "bodyRequired": false,
+      "params": [
+        {
+          "description": "Language for names and labels; one of cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW; defaults to en-US",
+          "enum": [
+            "cs-CZ",
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "es-MX",
+            "fr-FR",
+            "hu-HU",
+            "ja-JP",
+            "ko-KR",
+            "pl-PL",
+            "pt-BR",
+            "th-TH",
+            "tr-TR",
+            "vi-VN",
+            "zh-TW"
+          ],
+          "in": "query",
+          "name": "hl",
+          "type": "string"
+        },
+        {
+          "description": "Numeric league id from lolesports-leagues",
+          "in": "query",
+          "name": "league_id",
+          "required": true,
+          "type": "string",
+          "x-example": "98767991302996019"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    }
+  }
+}

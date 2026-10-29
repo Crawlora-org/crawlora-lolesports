@@ -1,0 +1,21 @@
+# Crawlora LoL Esports Rust SDK Operations
+
+Generated from `openapi/public.json`. Deprecated, admin, and internal operations are excluded from this SDK contract.
+
+Total operations: `13`
+
+| Group | SDK method | Operation ID | HTTP | Params | Auth | Response | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| lolesports | `lolesports.completed_events` | `lolesports-completed-events` | `GET /lolesports/completed-events` | `hl` (query String enum{cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW})<br>`tournament_id` (query String required) | `ApiKeyAuth` | `LolesportsCompletedEventsResponse` |  |
+| lolesports | `lolesports.event` | `lolesports-event` | `GET /lolesports/event` | `hl` (query String enum{cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW})<br>`match_id` (query String required) | `ApiKeyAuth` | `LolesportsEventResponse` |  |
+| lolesports | `lolesports.game_details` | `lolesports-game-details` | `GET /lolesports/game-details` | `game_id` (query String required)<br>`starting_time` (query String)<br>`participant_ids` (query String) | `ApiKeyAuth` | `LolesportsGameDetailsResponse` |  |
+| lolesports | `lolesports.game_window` | `lolesports-game-window` | `GET /lolesports/game-window` | `game_id` (query String required)<br>`starting_time` (query String) | `ApiKeyAuth` | `LolesportsGameWindowResponse` |  |
+| lolesports | `lolesports.gpr` | `lolesports-gpr` | `GET /lolesports/gpr` | `season` (query String enum{current, 2025, 2024})<br>`league` (query String)<br>`limit` (query i64)<br>`history` (query bool) | `ApiKeyAuth` | `LolesportsGprResponse` |  |
+| lolesports | `lolesports.leagues` | `lolesports-leagues` | `GET /lolesports/leagues` | `hl` (query String enum{cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW}) | `ApiKeyAuth` | `LolesportsLeaguesResponse` |  |
+| lolesports | `lolesports.live` | `lolesports-live` | `GET /lolesports/live` | `hl` (query String enum{cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW}) | `ApiKeyAuth` | `LolesportsLiveResponse` |  |
+| lolesports | `lolesports.news` | `lolesports-news` | `GET /lolesports/news` | `hl` (query String enum{cs-CZ, de-DE, el-GR, en-AU, en-GB, en-PH, en-SG, en-US, es-ES, es-MX, fr-FR, hu-HU, id-ID, it-IT, ja-JP, ko-KR, pl-PL, pt-BR, ro-RO, ru-RU, th-TH, tr-TR, vi-VN, zh-TW})<br>`limit` (query i64) | `ApiKeyAuth` | `LolesportsNewsResponse` |  |
+| lolesports | `lolesports.schedule` | `lolesports-schedule` | `GET /lolesports/schedule` | `hl` (query String enum{cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW})<br>`league_id` (query String)<br>`page_token` (query String) | `ApiKeyAuth` | `LolesportsScheduleResponse` |  |
+| lolesports | `lolesports.seasons` | `lolesports-seasons` | `GET /lolesports/seasons` | `hl` (query String enum{cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW})<br>`season_id` (query String)<br>`region` (query String)<br>`league_id` (query String) | `ApiKeyAuth` | `LolesportsSeasonsResponse` |  |
+| lolesports | `lolesports.standings` | `lolesports-standings` | `GET /lolesports/standings` | `hl` (query String enum{cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW})<br>`tournament_id` (query String required)<br>`rounds` (query String enum{True, False}) | `ApiKeyAuth` | `LolesportsStandingsResponse` |  |
+| lolesports | `lolesports.teams` | `lolesports-teams` | `GET /lolesports/teams` | `hl` (query String enum{cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW})<br>`slug` (query String)<br>`q` (query String)<br>`status` (query String enum{active, archived})<br>`page` (query i64)<br>`limit` (query i64) | `ApiKeyAuth` | `LolesportsTeamsResponse` |  |
+| lolesports | `lolesports.tournaments` | `lolesports-tournaments` | `GET /lolesports/tournaments` | `hl` (query String enum{cs-CZ, de-DE, en-US, es-ES, es-MX, fr-FR, hu-HU, ja-JP, ko-KR, pl-PL, pt-BR, th-TH, tr-TR, vi-VN, zh-TW})<br>`league_id` (query String required) | `ApiKeyAuth` | `LolesportsTournamentsResponse` |  |

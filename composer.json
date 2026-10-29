@@ -1,0 +1,50 @@
+{
+  "name": "crawlora/lolesports",
+  "description": "Crawlora LoL Esports API client with 13 endpoints for leagues, schedules, live and completed events, teams, players, and game details",
+  "keywords": [
+    "crawlora",
+    "api-client",
+    "sdk",
+    "web-scraping",
+    "scraping-api",
+    "lolesports",
+    "lol-esports",
+    "lolesports-api",
+    "lol-esports-api",
+    "lolesports-scraper",
+    "lol-esports-scraper",
+    "lolesports-data",
+    "lol-esports-data",
+    "lolesports-leagues",
+    "lolesports-schedules",
+    "lolesports-live-completed-events",
+    "lolesports-teams",
+    "lolesports-players",
+    "lolesports-game-details"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.1",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Crawlora\\Lolesports\\": "php/src/Crawlora/Lolesports/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Crawlora\\Lolesports\\Tests\\": "php/tests/"
+    }
+  },
+  "scripts": {
+    "test": "php php/tests/client_test.php"
+  },
+  "homepage": "https://crawlora.net/?utm_source=packagist&utm_medium=referral&utm_campaign=platform-clients&utm_content=lolesports-php-homepage",
+  "support": {
+    "source": "https://github.com/Crawlora-org/crawlora-lolesports",
+    "docs": "https://crawlora.net/docs?utm_source=packagist&utm_medium=referral&utm_campaign=platform-clients&utm_content=lolesports-php-api-docs"
+  }
+}
