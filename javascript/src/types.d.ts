@@ -543,7 +543,7 @@ export type LolesportsStandingsResponse = CrawloraResponse<ModelAppResponse & { 
 export interface LolesportsStandingsParams {
   "hl"?: "cs-CZ" | "de-DE" | "en-US" | "es-ES" | "es-MX" | "fr-FR" | "hu-HU" | "ja-JP" | "ko-KR" | "pl-PL" | "pt-BR" | "th-TH" | "tr-TR" | "vi-VN" | "zh-TW";
   "tournament_id": string;
-  "rounds"?: "True" | "False";
+  "rounds"?: true | false;
 }
 
 export type LolesportsTeamsResponse = CrawloraResponse<ModelAppResponse & { "data"?: ModelLolesportsTeamsResponse }>;

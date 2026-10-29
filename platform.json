@@ -1,4 +1,5 @@
 {
+  "api_path_prefix": "/lolesports/",
   "async_class_name": "AsyncLoLEsportsClient",
   "class_name": "LoLEsportsClient",
   "contract_revision": "sha256:dfc04699ee510a4e612c84eca40523396769018af312af081351eac0c0e4fa43",
