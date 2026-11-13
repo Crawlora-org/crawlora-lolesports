@@ -8,7 +8,7 @@ The official Java client for Crawlora's hosted LoL Esports API. It exposes 13 en
 <dependency>
   <groupId>net.crawlora</groupId>
   <artifactId>crawlora-lolesports</artifactId>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
 </dependency>
 ```
 

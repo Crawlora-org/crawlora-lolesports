@@ -1,6 +1,6 @@
 {
   "name": "@crawlora-org/lolesports",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Crawlora LoL Esports API client with 13 endpoints for leagues, schedules, live and completed events, teams, players, and game details",
   "homepage": "https://crawlora.net/?utm_source=npm&utm_medium=referral&utm_campaign=platform-clients&utm_content=lolesports-javascript-homepage",
   "bugs": { "url": "https://github.com/Crawlora-org/crawlora-lolesports/issues" },

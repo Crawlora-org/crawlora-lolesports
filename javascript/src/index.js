@@ -9,7 +9,7 @@ import {
 
 export class LoLEsportsClient extends CrawloraClient {
   constructor(options = {}) {
-    super({ ...options, userAgent: options.userAgent ?? "crawlora-lolesports-js/0.1.0" });
+    super({ ...options, userAgent: options.userAgent ?? "crawlora-lolesports-js/0.2.0" });
     this["completedEvents"] = (...args) => this.request("lolesports-completed-events", ...args);
     this["event"] = (...args) => this.request("lolesports-event", ...args);
     this["gameDetails"] = (...args) => this.request("lolesports-game-details", ...args);
@@ -35,5 +35,5 @@ export {
   CrawloraServerError
 };
 export { groups, operations, operationCount, OperationIds } from "./operations.js";
-export const VERSION = "0.1.0";
+export const VERSION = "0.2.0";
 export default LoLEsportsClient;

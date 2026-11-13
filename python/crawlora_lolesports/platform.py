@@ -7,7 +7,7 @@ from .async_client import AsyncCrawloraClient
 class LoLEsportsClient(CrawloraClient):
     """Synchronous LoL Esports API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-lolesports-python/0.1.0')
+        kwargs.setdefault('user_agent', 'crawlora-lolesports-python/0.2.0')
         super().__init__(*args, **kwargs)
 
     def completed_events(self, **params: Any) -> Any:
@@ -91,7 +91,7 @@ class LoLEsportsClient(CrawloraClient):
 class AsyncLoLEsportsClient(AsyncCrawloraClient):
     """Asynchronous LoL Esports API client."""
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        kwargs.setdefault('user_agent', 'crawlora-lolesports-python/0.1.0')
+        kwargs.setdefault('user_agent', 'crawlora-lolesports-python/0.2.0')
         super().__init__(*args, **kwargs)
 
     async def completed_events(self, **params: Any) -> Any:

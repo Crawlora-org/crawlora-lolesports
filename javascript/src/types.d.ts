@@ -502,7 +502,7 @@ export interface LolesportsGameWindowParams {
 
 export type LolesportsGprResponse = CrawloraResponse<ModelAppResponse & { "data"?: ModelLolesportsGprresponse }>;
 export interface LolesportsGprParams {
-  "season"?: "current" | "2025" | "2024";
+  "season"?: string;
   "league"?: string;
   "limit"?: number;
   "history"?: boolean;

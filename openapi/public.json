@@ -2032,16 +2032,11 @@
         "consumes": [
           "application/json"
         ],
-        "description": "Returns the League of Legends Esports Global Power Rankings (GPR): every ranked team with rank, GPR score, Elo, previous rank and rank change, home league, match and game records, average opponent GPR and the tournaments counted with each result and placement. `season` selects `current` (the running year, default) or the Worlds snapshots `2025` and `2024`; `league` keeps one home league's teams and `history` adds the daily GPR history points. The response lists the seasons and home leagues available.",
+        "description": "Returns the League of Legends Esports Global Power Rankings (GPR): every ranked team with rank, GPR score, Elo, previous rank and rank change, home league, match and game records, average opponent GPR and the tournaments counted with each result and placement. `season` selects `current` (the running year, default) or the Worlds snapshot of a four-digit year (`2025`, `2024`; every season listed in the response's `seasons` is accepted, and a year without a snapshot returns 404); `league` keeps one home league's teams and `history` adds the daily GPR history points. The response lists the seasons and home leagues available.",
         "operationId": "lolesports-gpr",
         "parameters": [
           {
-            "description": "Ranking snapshot; one of current, 2025, 2024; defaults to current",
-            "enum": [
-              "current",
-              "2025",
-              "2024"
-            ],
+            "description": "Ranking snapshot; current, or a four-digit Worlds snapshot year such as 2025 or 2024 (any season listed in the response is accepted); defaults to current",
             "in": "query",
             "name": "season",
             "type": "string"

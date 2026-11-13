@@ -295,12 +295,7 @@
         {
           "name": "season",
           "in": "query",
-          "type": "string",
-          "enum": [
-            "current",
-            "2025",
-            "2024"
-          ]
+          "type": "string"
         },
         {
           "name": "league",
@@ -322,12 +317,7 @@
       "bodyRequired": false,
       "params": [
         {
-          "description": "Ranking snapshot; one of current, 2025, 2024; defaults to current",
-          "enum": [
-            "current",
-            "2025",
-            "2024"
-          ],
+          "description": "Ranking snapshot; current, or a four-digit Worlds snapshot year such as 2025 or 2024 (any season listed in the response is accepted); defaults to current",
           "in": "query",
           "name": "season",
           "type": "string"

@@ -26,7 +26,7 @@ test("serializes required query/path values, adds API key and platform User-Agen
   await client.request("lolesports-completed-events", {"tournament_id": "sample"});
   assert.match(seen.url, /\/lolesports\/completed\-events/);
   assert.equal(seen.headers["x-api-key"], "secret");
-  assert.equal(seen.headers["user-agent"], "crawlora-lolesports-js/0.1.0");
+  assert.equal(seen.headers["user-agent"], "crawlora-lolesports-js/0.2.0");
 });
 
 test("allows caller User-Agent override and response text mode", async () => {

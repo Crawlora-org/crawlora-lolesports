@@ -2,11 +2,11 @@
   "api_path_prefix": "/lolesports/",
   "async_class_name": "AsyncLoLEsportsClient",
   "class_name": "LoLEsportsClient",
-  "contract_revision": "sha256:dfc04699ee510a4e612c84eca40523396769018af312af081351eac0c0e4fa43",
+  "contract_revision": "sha256:cd0853f1a03164a9d1cd3d2aa16b6fdc2a09f77c3434ff8636516314c06e2eed",
   "display_name": "LoL Esports",
   "general_sdk_version": "1.50.0-sdk.1",
   "golang_module_name": "github.com/Crawlora-org/crawlora-lolesports",
-  "golang_version": "0.1.0",
+  "golang_version": "0.2.0",
   "group_name": "lolesports",
   "java_description": "Java client for Crawlora's hosted LoL Esports API, with leagues, schedules, live and completed events, teams, players, and game details. Requires a Crawlora API key.",
   "maven_artifact_id": "crawlora-lolesports",
@@ -17,10 +17,27 @@
   "php_repository": "https://github.com/Crawlora-org/crawlora-lolesports",
   "platform": "lolesports",
   "python_name": "crawlora-lolesports",
+  "releases": [
+    {
+      "changes": [
+        "Updated operation contracts: lolesports-gpr."
+      ],
+      "date": "2026-11-13",
+      "version": "0.2.0"
+    },
+    {
+      "changes": [
+        "Initial LoL Esports platform clients for Crawlora's hosted API across JavaScript/TypeScript, Python, Go, Ruby, Java, PHP, and Rust.",
+        "Includes typed endpoint methods generated from contract revision `sha256:dfc04699ee510a4e612c84eca40523396769018af312af081351eac0c0e4fa43`."
+      ],
+      "date": "2026-10-07",
+      "version": "0.1.0"
+    }
+  ],
   "repository": "https://github.com/Crawlora-org/crawlora-lolesports",
   "ruby_gem_name": "crawlora-lolesports",
   "rust_crate_name": "crawlora-lolesports",
   "rust_module_name": "crawlora_lolesports",
-  "source_contract_sha256": "dfc04699ee510a4e612c84eca40523396769018af312af081351eac0c0e4fa43",
-  "version": "0.1.0"
+  "source_contract_sha256": "123c5406ee3b92b07d2ef3dbe21a6ded54b79b25d26c13cbb905a34e3ecc7118",
+  "version": "0.2.0"
 }
