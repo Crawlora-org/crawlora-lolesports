@@ -8,7 +8,7 @@ Official Crawlora client packages for the hosted LoL Esports API. Access 13 API 
 - Python: [`crawlora-lolesports`](python/README.md)
 - Go: [`github.com/Crawlora-org/crawlora-lolesports`](go.mod)
 - Ruby: [`crawlora-lolesports`](ruby/README.md)
-- Java: [`net.crawlora:crawlora-lolesports:0.1.0`](java/README.md)
+- Java: [`net.crawlora:crawlora-lolesports:0.2.0`](java/README.md)
 - PHP: [`crawlora/lolesports`](php/README.md)
 - Rust: [`crawlora-lolesports`](rust/README.md)
 

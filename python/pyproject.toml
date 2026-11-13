@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "crawlora-lolesports"
-version = "0.1.0"
+version = "0.2.0"
 description = "Crawlora LoL Esports API client with 13 endpoints for leagues, schedules, live and completed events, teams, players, and game details"
 readme = "README.md"
 keywords = ["crawlora", "api-client", "sdk", "web-scraping", "scraping-api", "lolesports", "lol-esports", "lolesports-api", "lol-esports-api", "lolesports-scraper", "lol-esports-scraper", "lolesports-data", "lol-esports-data", "lolesports-leagues", "lolesports-schedules", "lolesports-live-completed-events", "lolesports-teams", "lolesports-players", "lolesports-game-details"]

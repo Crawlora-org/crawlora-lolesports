@@ -179,11 +179,6 @@ export const operations = {
     ],
     "queryParams": [
       {
-        "enum": [
-          "current",
-          "2025",
-          "2024"
-        ],
         "in": "query",
         "name": "season",
         "type": "string"

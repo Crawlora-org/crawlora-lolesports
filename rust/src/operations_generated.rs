@@ -138,7 +138,7 @@ static OPERATIONS: &[OperationDefinition] = &[
                 collection_format: None,
                 kind: Some("string"),
                 required: false,
-                enum_values: &["current", "2025", "2024"],
+                enum_values: &[],
             },
             ParameterDefinition {
                 name: "league",
